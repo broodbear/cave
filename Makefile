@@ -5,3 +5,6 @@ cave:
 
 lint:
 	@golangci-lint -v run
+
+format:
+	@gofumpt -l -w .
