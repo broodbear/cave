@@ -9,13 +9,16 @@ import (
 	"github.com/urfave/cli/v2"
 )
 
-var version = "dev"
+var (
+	version = "dev"
+	date    = ""
+)
 
 func main() {
 	app := &cli.App{
 		Name:    "cave",
 		Usage:   "keep track of your targets",
-		Version: version,
+		Version: version + " " + date,
 		Authors: []*cli.Author{
 			{
 				Name:  "Brood Bear",
