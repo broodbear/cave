@@ -2,6 +2,12 @@
 
 Use a bear cave to keep track of your target.
 
+## installation
+
+```bash
+go install github.com/broodbear/cave/cmd/cave@latest
+```
+
 ## usage instructions
 
 ### initialize
@@ -25,19 +31,12 @@ EOT
 sqlite3 default.db < migration.sql
 ```
 
-### export
+### add
 
-The export command will export all the credentials to a file named `cave.csv`
-using a comma as the separator.
-
-```bash
-cave credentials export
-```
-
-You can change the destination filename and the separator.
+The following command will prompt you for the fields then add those to the database.
 
 ```bash
-cave credentials export --separator "^" --filename "export.csv"
+cave credentials add
 ```
 
 ### import
@@ -55,4 +54,19 @@ You can change the input filename and the separator.
 
 ```bash
 cave credentials import --separator "^" --filename "export.csv"
+```
+
+### export
+
+The export command will export all the credentials to a file named `cave.csv`
+using a comma as the separator.
+
+```bash
+cave credentials export
+```
+
+You can change the destination filename and the separator.
+
+```bash
+cave credentials export --separator "^" --filename "export.csv"
 ```

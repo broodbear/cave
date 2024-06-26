@@ -4,7 +4,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/broodbear/cave/cmd/commands"
+	"github.com/broodbear/cave/cmd/cave/commands"
 	"github.com/urfave/cli/v2"
 )
 
