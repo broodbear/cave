@@ -89,3 +89,20 @@ You can change the destination filename and the separator.
 ```bash
 cave credentials export --separator "^" --filename "export.csv"
 ```
+
+## Contributing
+
+Contributions are welcomed. You will need to install the following.
+
+- [gofumpt](https://github.com/mvdan/gofumpt)
+- [golangci-lint](https://golangci-lint.run/)
+- [sqlite3](https://www.sqlite.org/download.html)
+- [goreleaser](https://goreleaser.com/)
+
+```bash
+go install mvdan.cc/gofumpt@latest
+go install github.com/goreleaser/goreleaser/v2@latest
+go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.59.1
+
+sudo apt install sqlite3
+```
