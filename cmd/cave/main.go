@@ -16,6 +16,12 @@ func main() {
 		Name:    "cave",
 		Usage:   "keep track of your targets",
 		Version: version,
+		Authors: []*cli.Author{
+			{
+				Name:  "Brood Bear",
+				Email: "caveauthor.talon314@passmail.net",
+			},
+		},
 		Action: func(c *cli.Context) error {
 
 			cli.ShowAppHelpAndExit(c, 0)
