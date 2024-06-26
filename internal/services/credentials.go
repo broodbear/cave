@@ -8,6 +8,7 @@ import (
 	"strings"
 
 	"github.com/broodbear/cave/internal/models"
+	"github.com/jedib0t/go-pretty/v6/table"
 )
 
 var ErrMissingFields = errors.New("not enough fields in file")
@@ -101,6 +102,32 @@ func (c Credentials) Import(filename, sep string) error {
 			return err
 		}
 	}
+
+	return nil
+}
+
+func (c Credentials) Print() error {
+	records, err := c.credentialsStore.All()
+	if err != nil {
+		return err
+	}
+
+	t := table.NewWriter()
+	t.SetOutputMirror(os.Stdout)
+	t.AppendHeader(table.Row{"#", "Project", "Target", "Username", "Password", "Created"})
+
+	for _, record := range records {
+		t.AppendRow([]interface{}{
+			record.ID,
+			record.Project,
+			record.Target,
+			record.Username,
+			record.Password,
+			record.CreatedAt,
+		})
+	}
+
+	t.Render()
 
 	return nil
 }

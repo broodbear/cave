@@ -7,8 +7,10 @@ import (
 )
 
 const (
-	insertCredentialQuery  = "insert into cave (project, target, username, password) values ($1, $2, $3, $4)"
-	selectCredentialsQuery = "select project, target, username, password from cave"
+	insertCredentialQuery = "insert into cave (project, target, username, password) values ($1, $2, $3, $4)"
+
+	//nolint:gosec // not hardcoded credentials
+	selectCredentialsQuery = "select id, created_at, project, target, username, password from cave"
 )
 
 type Credentials struct {
@@ -43,6 +45,8 @@ func (c Credentials) All() ([]models.Record, error) {
 		var record models.Record
 
 		err = rows.Scan(
+			&record.ID,
+			&record.CreatedAt,
 			&record.Project,
 			&record.Target,
 			&record.Username,

@@ -19,6 +19,63 @@ var fileFlags = []cli.Flag{
 	},
 }
 
+var (
+	credentialsAddCommand = &cli.Command{
+		Name:  "add",
+		Usage: "add new credentials",
+		Action: func(c *cli.Context) error {
+			creds, err := wireCredentials(c.String("project"), c.String("database"))
+			if err != nil {
+				return err
+			}
+
+			return creds.Add()
+		},
+	}
+
+	credentialsImportCommand = &cli.Command{
+		Name:  "import",
+		Usage: "import existing credentials from a file",
+		Flags: fileFlags,
+		Action: func(c *cli.Context) error {
+			creds, err := wireCredentials(c.String("project"), c.String("database"))
+			if err != nil {
+				return err
+			}
+
+			return creds.Import(c.String("filename"), c.String("separator"))
+		},
+	}
+
+	credentialsExportCommand = &cli.Command{
+		Name:  "export",
+		Usage: "export credentials to a file",
+		Flags: fileFlags,
+		Action: func(c *cli.Context) error {
+			creds, err := wireCredentials(c.String("project"), c.String("database"))
+			if err != nil {
+				return err
+			}
+
+			return creds.Export(c.String("filename"), c.String("separator"))
+		},
+	}
+
+	credentialsPrintCommand = &cli.Command{
+		Name:  "print",
+		Usage: "print the credentials to the screen",
+		Flags: fileFlags,
+		Action: func(c *cli.Context) error {
+			creds, err := wireCredentials(c.String("project"), c.String("database"))
+			if err != nil {
+				return err
+			}
+
+			return creds.Print()
+		},
+	}
+)
+
 func Credentials() *cli.Command {
 	return &cli.Command{
 		Name:    "credentials",
@@ -30,44 +87,10 @@ func Credentials() *cli.Command {
 			return nil
 		},
 		Subcommands: []*cli.Command{
-			{
-				Name:  "add",
-				Usage: "add new credentials",
-				Action: func(c *cli.Context) error {
-					creds, err := wireCredentials(c.String("project"), c.String("database"))
-					if err != nil {
-						return err
-					}
-
-					return creds.Add()
-				},
-			},
-			{
-				Name:  "import",
-				Usage: "import existing credentials from a file",
-				Flags: fileFlags,
-				Action: func(c *cli.Context) error {
-					creds, err := wireCredentials(c.String("project"), c.String("database"))
-					if err != nil {
-						return err
-					}
-
-					return creds.Import(c.String("filename"), c.String("separator"))
-				},
-			},
-			{
-				Name:  "export",
-				Usage: "export credentials to a file",
-				Flags: fileFlags,
-				Action: func(c *cli.Context) error {
-					creds, err := wireCredentials(c.String("project"), c.String("database"))
-					if err != nil {
-						return err
-					}
-
-					return creds.Export(c.String("filename"), c.String("separator"))
-				},
-			},
+			credentialsAddCommand,
+			credentialsImportCommand,
+			credentialsExportCommand,
+			credentialsPrintCommand,
 		},
 	}
 }

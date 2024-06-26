@@ -41,6 +41,15 @@ The following command will prompt you for the fields then add those to the datab
 cave credentials add
 ```
 
+### print
+
+The following command will print out all the credentials from the database to the
+terminal.
+
+```bash
+cave credentials print
+```
+
 ### import
 
 You may already have a file containing some data you want to import.
