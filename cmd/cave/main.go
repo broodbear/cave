@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/broodbear/cave/cmd/cave/commands"
+	"github.com/broodbear/cave/cmd/cave/config"
 	"github.com/urfave/cli/v2"
 )
 
@@ -13,6 +14,7 @@ func main() {
 		Name:  "cave",
 		Usage: "keep track of your targets",
 		Action: func(c *cli.Context) error {
+
 			cli.ShowAppHelpAndExit(c, 0)
 
 			return nil
@@ -27,10 +29,11 @@ func main() {
 			&cli.StringFlag{
 				Name:  "database",
 				Usage: "path to the sqlite3 database",
-				Value: "default.db",
+				Value: config.GetConfigPath() + "/default.db",
 			},
 		},
 		Commands: []*cli.Command{
+			commands.Initialize(),
 			commands.Credentials(),
 		},
 	}

@@ -16,6 +16,14 @@ sudo install ./cave /usr/local/bin
 
 Initialize a new database.
 
+#### Initialize database
+
+```bash
+cave i
+```
+
+#### Manually create database
+
 ```bash
 cat <<EOT > ./migration.sql
 create table
