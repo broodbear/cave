@@ -1,6 +1,6 @@
 module github.com/broodbear/cave
 
-go 1.22.2
+go 1.22.4
 
 require (
 	github.com/jedib0t/go-pretty/v6 v6.5.9
