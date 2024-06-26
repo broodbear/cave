@@ -66,7 +66,7 @@ The import command will look for a file named `cave.csv` and use a comma as a
 separator.
 
 ```bash
-./bin/cave credentials import
+cave credentials import
 ```
 
 You can change the input filename and the separator.
