@@ -9,10 +9,13 @@ import (
 	"github.com/urfave/cli/v2"
 )
 
+var version = "not-set"
+
 func main() {
 	app := &cli.App{
-		Name:  "cave",
-		Usage: "keep track of your targets",
+		Name:    "cave",
+		Usage:   "keep track of your targets",
+		Version: version,
 		Action: func(c *cli.Context) error {
 
 			cli.ShowAppHelpAndExit(c, 0)
