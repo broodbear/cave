@@ -2,3 +2,5 @@
 *.db
 *.sql
 *.csv
+
+dist/
