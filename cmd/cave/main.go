@@ -9,7 +9,7 @@ import (
 	"github.com/urfave/cli/v2"
 )
 
-var version = "not-set"
+var version = "dev"
 
 func main() {
 	app := &cli.App{
