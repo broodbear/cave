@@ -5,8 +5,8 @@ Use a bear cave to keep track of your target.
 ## installation
 
 ```bash
-wget https://github.com/broodbear/cave/releases/download/v0.2.0/cave.tar.gz
-tar -xf cave.tar.gz
+wget https://github.com/broodbear/cave/releases/latest/download/cave_$(uname)_$(uname -m).tar.gz
+tar -xf cave_$(uname)_$(uname -m).tar.gz
 sudo install ./cave /usr/local/bin
 ```
 
