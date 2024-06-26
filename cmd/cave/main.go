@@ -23,7 +23,6 @@ func main() {
 			},
 		},
 		Action: func(c *cli.Context) error {
-
 			cli.ShowAppHelpAndExit(c, 0)
 
 			return nil

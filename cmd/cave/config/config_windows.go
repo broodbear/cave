@@ -3,6 +3,5 @@
 package config
 
 func GetConfigPath() string {
-
 	return ".config/cave"
 }
