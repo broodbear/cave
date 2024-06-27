@@ -64,7 +64,6 @@ var (
 	credentialsPrintCommand = &cli.Command{
 		Name:  "print",
 		Usage: "print the credentials to the screen",
-		Flags: fileFlags,
 		Action: func(c *cli.Context) error {
 			creds, err := wireCredentials(c.String("project"), c.String("database"))
 			if err != nil {
