@@ -5,7 +5,7 @@ import (
 )
 
 const createCave = `create table
-  'cave' (
+  'credentials' (
     'id' integer not null primary key autoincrement,
     'created_at' datetime not null default CURRENT_TIMESTAMP,
     'project' varchar(255) null,

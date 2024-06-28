@@ -7,10 +7,10 @@ import (
 )
 
 const (
-	insertCredentialQuery = "insert into cave (project, target, username, password) values ($1, $2, $3, $4)"
+	insertCredentialQuery = "insert into credentials (project, target, username, password) values ($1, $2, $3, $4)"
 
 	//nolint:gosec // not hardcoded credentials
-	selectCredentialsQuery = "select id, created_at, project, target, username, password from cave"
+	selectCredentialsQuery = "select id, created_at, project, target, username, password from credentials"
 )
 
 type Credentials struct {
